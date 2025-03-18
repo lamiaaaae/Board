@@ -5,8 +5,7 @@ name: Java CI with Maven
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+ 
 
 jobs:
   build:
@@ -33,6 +32,8 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+    - name: Install jq 
+      run: sudo apt-get update && sudo apt-get install -y jq
 
     - name: SonarQube Quality Gate check
       id: sonarqube-quality-gate-check
