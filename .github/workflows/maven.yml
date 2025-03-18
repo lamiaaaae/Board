@@ -52,11 +52,11 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        docker build -t adijaiswal/boardgame:latest .
+        docker build -t lamiae20/boardgame:latest .
 
     - name: Trivy Image Scan
       run: |
-        trivy image --format table -o trivy-image-report.html adijaiswal/board:latest
+        trivy image --format table -o trivy-image-report.html lamiae20/board:latest
     
     - name: Login to Docker Hub
       uses: docker/login-action@v3
@@ -66,7 +66,7 @@ jobs:
 
     - name: Push Docker Image
       run: |
-          docker push adijaiswal/boardgame:latest
+          docker push lamiae20/boardgame:latest
     - name: Kubectl Action
       uses: tale/kubectl-action@v1
       with:
