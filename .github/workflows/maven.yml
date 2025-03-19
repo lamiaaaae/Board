@@ -34,8 +34,12 @@ jobs:
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
     
 
-    - name: Install jq 
-      run: timeout 120s sudo apt-get update && sudo apt-get install -y jq || echo "Installation skipped due to timeout"
+    - name: Install jq manually
+      run: |
+        wget -O jq https://github.com/jqlang/jq/releases/latest/download/jq-linux-amd64
+        chmod +x jq
+        sudo mv jq /usr/local/bin/
+
 
 
     - name: SonarQube Quality Gate check
