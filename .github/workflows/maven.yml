@@ -59,7 +59,7 @@ jobs:
 
     - name: Trivy Image Scan
       run: |
-        trivy image --format table -o trivy-image-report.html lamiae20/board:latest
+        trivy image --format table -o trivy-image-report.html lamiae20/boardgame:latest
     
     - name: Login to Docker Hub
       uses: docker/login-action@v3
