@@ -32,8 +32,11 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+    
+
     - name: Install jq 
-      run: sudo apt-get update && sudo apt-get install -y jq
+      run: timeout 120s sudo apt-get update && sudo apt-get install -y jq || echo "Installation skipped due to timeout"
+
 
     - name: SonarQube Quality Gate check
       id: sonarqube-quality-gate-check
