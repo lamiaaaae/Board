@@ -79,7 +79,8 @@ jobs:
 
     - name: Deploy to Kubernetes
       run: |
-        kubectl apply -f deployment-service.yaml -n webapps
+        kubectl apply --validate=false -f deployment-service.yaml -n webapps
+
 
 
     
