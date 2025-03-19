@@ -34,7 +34,7 @@ jobs:
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
     
     - name: Install jq
-      run: sudo apt-get install -y jq
+      run: sudo apt-get install -y jq --fix-missing
 
 
 
