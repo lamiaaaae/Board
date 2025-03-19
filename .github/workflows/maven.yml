@@ -68,7 +68,12 @@ jobs:
 
     - name: Push Docker Image
       run: |
-          docker push lamiae20/boardgame:latest
+          docker push lamiae20/boardgame:latest   
+    - name: Start Minikube
+      run: |
+        minikube start --driver=docker
+        kubectl cluster-info
+
     - name: Kubectl Action
       uses: tale/kubectl-action@v1
       with:
