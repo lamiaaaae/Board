@@ -33,12 +33,8 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
     
-
-    - name: Install jq manually
-      run: |
-        wget -O jq https://github.com/jqlang/jq/releases/latest/download/jq-linux-amd64
-        chmod +x jq
-        sudo mv jq /usr/local/bin/
+    - name: Install jq
+      run: sudo apt-get install -y jq
 
 
 
