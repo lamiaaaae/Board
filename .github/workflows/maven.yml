@@ -70,17 +70,8 @@ jobs:
       run: |
           docker push lamiae20/boardgame:latest   
     
-    - name: Load Kubernetes Config
-      run: |
-        mkdir -p ~/.kube
-        echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > ~/.kube/config
-        export KUBECONFIG=~/.kube/config
-
-    - name: Verify Kubernetes Config
-      run: |
-        kubectl config view
-        kubectl cluster-info
-
+  
+  
     - name: Kubectl Action
       uses: tale/kubectl-action@v1
       with:
